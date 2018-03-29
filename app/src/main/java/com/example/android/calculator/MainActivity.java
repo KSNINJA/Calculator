@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<mainLength;i++)
         {
             if((int) main.charAt(i)>=48 && (int) main.charAt(i)<=57){
-                 while(((int) main.charAt(i)>=48) && ((int) main.charAt(i)<=57) && i<mainLength)
+                 while(((int) main.charAt(i)>=48) && ((int) main.charAt(i)<=57) && i<mainLength || main.charAt(i)=='.')
                  {
                      arr[a] += main.charAt(i);
                      i++;
@@ -195,23 +195,23 @@ public class MainActivity extends AppCompatActivity {
                 stack_result.push(arr[i]);
             }
             else{
-                int y= Integer.valueOf(stack_result.pop());
-                int z= Integer.valueOf(stack_result.pop());
+                float y= Float.valueOf(stack_result.pop());
+                float z= Float.valueOf(stack_result.pop());
                 if(arr[i].equals("/"))
                 {
-                    stack_result.push(Integer.toString(z/y));
+                    stack_result.push(Float.toString(z/y));
                 }
-                if(arr[i].equals("*"))
+                else if(arr[i].equals("*"))
                 {
-                    stack_result.push(Integer.toString(z*y));
+                    stack_result.push(Float.toString(z*y));
                 }
-                if(arr[i].equals("+"))
+                else if(arr[i].equals("+"))
                 {
-                    stack_result.push(Integer.toString(z+y));
+                    stack_result.push(Float.toString(z+y));
                 }
-                if(arr[i].equals("-"))
+                else if(arr[i].equals("-"))
                 {
-                    stack_result.push(Integer.toString(z-y));
+                    stack_result.push(Float.toString(z-y));
                 }
 
             }
